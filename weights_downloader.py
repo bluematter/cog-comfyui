@@ -48,40 +48,21 @@ class WeightsDownloader:
             self.download(weight_str, url, dest)
 
     def download(self, weight_str, url, dest):
-        # Ensure the destination directory exists
         if "/" in weight_str:
             subfolder = weight_str.rsplit("/", 1)[0]
             dest = os.path.join(dest, subfolder)
-        os.makedirs(dest, exist_ok=True)
+            os.makedirs(dest, exist_ok=True)
 
         print(f"⏳ Downloading {weight_str} to {dest}")
         start = time.time()
-
-        # Determine the file path
-        file_name = os.path.basename(url)
-        file_path = os.path.join(dest, file_name)
-
-        # Using pget to download the file with adjusted chunk size and concurrency
-        pget_command = [
-            "pget", "--log-level", "warn", "-c", "10", "-m", "50M", "-xf", url, file_path
-        ]
-        subprocess.check_call(pget_command, close_fds=False)
-
-        # Verify the file exists
-        if not os.path.exists(file_path):
-            raise FileNotFoundError(f"File not found: {file_path}")
-
-        # Untar the file if it is a tar file
-        if file_path.endswith(".tar"):
-            print(f"⏳ Extracting {file_path}")
-            tar_command = [
-                "tar", "-xvf", file_path, "-C", dest
-            ]
-            subprocess.check_call(tar_command, close_fds=False)
-
+        subprocess.check_call(
+            ["pget", "--log-level", "warn", "-c", "10", "-m", "50M", "-xf", url, dest], close_fds=False
+        )
         elapsed_time = time.time() - start
         try:
-            file_size_bytes = os.path.getsize(file_path)
+            file_size_bytes = os.path.getsize(
+                os.path.join(dest, os.path.basename(weight_str))
+            )
             file_size_megabytes = file_size_bytes / (1024 * 1024)
             print(
                 f"⌛️ Downloaded {weight_str} in {elapsed_time:.2f}s, size: {file_size_megabytes:.2f}MB"
