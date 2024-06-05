@@ -2,6 +2,7 @@
   "CHECKPOINTS": [
     "rife47.pth",
     "svd_xt_1_1.safetensors",
+    "zavychromaxl_v70.safetensors",
     "zavychromaxl_v31.safetensors",
     "512-inpainting-ema.safetensors",
     "absolutereality_v181.safetensors",
@@ -131,6 +132,7 @@
   ],
   "LORAS": [
     "kitty.safetensors",
+    "ral-spike-sdxl.safetensors",
     "3d_render_style_xl.safetensors",
     "add-detail-xl.safetensors",
     "aesthetic_anime_v1s.safetensors",
