@@ -1,5 +1,8 @@
 {
   "CHECKPOINTS": [
+    "rife47.pth",
+    "svd_xt_1_1.safetensors",
+    "zavychromaxl_v31.safetensors",
     "512-inpainting-ema.safetensors",
     "absolutereality_v181.safetensors",
     "albedobaseXL_v13.safetensors",
@@ -127,6 +130,8 @@
     "model.sdxl.safetensors"
   ],
   "LORAS": [
+    "kitty.safetensors",
+    "ral-spike-sdxl.safetensors.tar",
     "3d_render_style_xl.safetensors",
     "add-detail-xl.safetensors",
     "aesthetic_anime_v1s.safetensors",
@@ -377,10 +382,7 @@
     "ip_plus_composition_sd15.safetensors",
     "ip_plus_composition_sdxl.safetensors"
   ],
-  "VAE": [
-    "sdxl_vae.safetensors",
-    "vae-ft-mse-840000-ema-pruned.safetensors"
-  ],
+  "VAE": ["sdxl_vae.safetensors", "vae-ft-mse-840000-ema-pruned.safetensors"],
   "UNET": [
     "iclight_sd15_fbc_unet_ldm.safetensors",
     "iclight_sd15_fc_unet_ldm.safetensors",
@@ -393,12 +395,8 @@
     "sdxl_lightning_8step_unet.pth",
     "sdxl_lightning_8step_unet.safetensors"
   ],
-  "PHOTOMAKER": [
-    "photomaker-v1.bin"
-  ],
-  "INSTANTID": [
-    "instantid-ip-adapter.bin"
-  ],
+  "PHOTOMAKER": ["photomaker-v1.bin"],
+  "INSTANTID": ["instantid-ip-adapter.bin"],
   "INSIGHTFACE": [
     "antelopev2",
     "buffalo_l",
@@ -421,9 +419,7 @@
     "GFPGANv1.4.pth",
     "RestoreFormer.pth"
   ],
-  "MMDETS": [
-    "bbox/mmdet_anime-face_yolov3.pth"
-  ],
+  "MMDETS": ["bbox/mmdet_anime-face_yolov3.pth"],
   "SAMS": [
     "mobile_sam.pt",
     "sam_hq_vit_b.pth",
@@ -437,9 +433,7 @@
     "groundingdino_swinb_cogcoor.pth",
     "groundingdino_swint_ogc.pth"
   ],
-  "BERT-BASE-UNCASED": [
-    "bert-base-uncased"
-  ],
+  "BERT-BASE-UNCASED": ["bert-base-uncased"],
   "ULTRALYTICS": [
     "bbox/Eyes.pt",
     "bbox/face_yolov8m.pt",
@@ -461,9 +455,7 @@
     "layer_xl_transparent_conv.safetensors",
     "vae_transparent_decoder.safetensors"
   ],
-  "CLIPSEG": [
-    "models--CIDAS--clipseg-rd64-refined"
-  ],
+  "CLIPSEG": ["models--CIDAS--clipseg-rd64-refined"],
   "REMBG": [
     "isnet-anime.onnx",
     "isnet-general-use.onnx",
@@ -475,14 +467,10 @@
     "vit_b-decoder-quant.onnx",
     "vit_b-encoder-quant.onnx"
   ],
-  "PULID": [
-    "ip-adapter_pulid_sdxl_fp16.safetensors"
-  ],
+  "PULID": ["ip-adapter_pulid_sdxl_fp16.safetensors"],
   "GLIGEN": [
     "gligen_sd14_textbox_pruned.safetensors",
     "gligen_sd14_textbox_pruned_fp16.safetensors"
   ],
-  "DYNAMICRAFTER": [
-    "tooncrafter_512_interp-fp16.safetensors"
-  ]
+  "DYNAMICRAFTER": ["tooncrafter_512_interp-fp16.safetensors"]
 }

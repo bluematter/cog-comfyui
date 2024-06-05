@@ -22,7 +22,8 @@ class WeightsManifest:
 
     def __init__(self):
         self.download_latest_weights_manifest = (
-            os.getenv("DOWNLOAD_LATEST_WEIGHTS_MANIFEST", "false").lower() == "true"
+            os.getenv("DOWNLOAD_LATEST_WEIGHTS_MANIFEST",
+                      "false").lower() == "true"
         )
         self.weights_manifest = self._load_weights_manifest()
         self.weights_map = self._initialize_weights_map()
@@ -58,7 +59,8 @@ class WeightsManifest:
                 print(f"Failed to download {UPDATED_WEIGHTS_MANIFEST_URL}")
                 pass
             except subprocess.TimeoutExpired:
-                print(f"Download from {UPDATED_WEIGHTS_MANIFEST_URL} timed out")
+                print(
+                    f"Download from {UPDATED_WEIGHTS_MANIFEST_URL} timed out")
                 pass
 
     def _merge_manifests(self):
@@ -86,10 +88,19 @@ class WeightsManifest:
         return original_manifest
 
     def _generate_weights_map(self, keys, dest):
+        custom_weights = {
+            "zavychromaxl_v70.safetensors": "https://weights.basedlabs.ai/zavychromaxl_v70.safetensors.tar",
+            "zavychromaxl_v31.safetensors": "https://weights.replicate.delivery/default/basedlabs-media/zavychromaxl_v31.safetensors.tar",
+            "kitty.safetensors": "https://weights.replicate.delivery/default/basedlabs-media/kitty.safetensors.tar",
+            "rife47.pth": "https://weights.replicate.delivery/default/basedlabs-media/rife47.pth.tar",
+            "svd_xt_1_1.safetensors": "https://weights.replicate.delivery/default/basedlabs-media/svd_xt_1_1.safetensors.tar",
+            "ral-spike-sdxl.safetensors.tar": "https://weights.basedlabs.ai/ral-spike-sdxl.safetensors.tar"
+        }
+
         return {
             key: {
-                "url": f"{BASE_URL}/{dest}/{key}.tar",
-                "dest": f"{BASE_PATH}/{dest}",
+                "url": custom_weights[key] if key in custom_weights else f"{BASE_URL}/{dest}/{key}.tar",
+                "dest": f"{BASE_PATH}/{dest}"
             }
             for key in keys
         }
@@ -99,7 +110,8 @@ class WeightsManifest:
         for key in self.weights_manifest.keys():
             if key.isupper():
                 weights_map.update(
-                    self._generate_weights_map(self.weights_manifest[key], key.lower())
+                    self._generate_weights_map(
+                        self.weights_manifest[key], key.lower())
                 )
 
         for module_name in dir(helpers):
