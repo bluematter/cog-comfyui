@@ -61,7 +61,7 @@ class WeightsDownloader:
         file_name = os.path.basename(url)
         file_path = os.path.join(dest, file_name)
 
-        # Using pget to download the file
+        # Using pget to download the file directly to the file path
         pget_command = [
             "pget", "--log-level", "warn", "-xf", url, file_path
         ]
