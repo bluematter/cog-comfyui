@@ -15,7 +15,7 @@ INPUT_DIR = "/tmp/inputs"
 COMFYUI_TEMP_OUTPUT_DIR = "ComfyUI/temp"
 ALL_DIRECTORIES = [OUTPUT_DIR, INPUT_DIR, COMFYUI_TEMP_OUTPUT_DIR]
 
-with open("examples/api_workflows/sd15_txt2img.json", "r") as file:
+with open("examples/api_workflows/basedlabs.json", "r") as file:
     EXAMPLE_WORKFLOW_JSON = file.read()
 
 
@@ -33,7 +33,8 @@ class Predictor(BasePredictor):
             with zipfile.ZipFile(input_file, "r") as zip_ref:
                 zip_ref.extractall(INPUT_DIR)
         elif file_extension in [".jpg", ".jpeg", ".png", ".webp"]:
-            shutil.copy(input_file, os.path.join(INPUT_DIR, f"input{file_extension}"))
+            shutil.copy(input_file, os.path.join(
+                INPUT_DIR, f"input{file_extension}"))
         else:
             raise ValueError(f"Unsupported file type: {file_extension}")
 
@@ -90,5 +91,6 @@ class Predictor(BasePredictor):
             output_directories.append(COMFYUI_TEMP_OUTPUT_DIR)
 
         return optimise_images.optimise_image_files(
-            output_format, output_quality, self.comfyUI.get_files(output_directories)
+            output_format, output_quality, self.comfyUI.get_files(
+                output_directories)
         )
