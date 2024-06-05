@@ -63,9 +63,13 @@ class WeightsDownloader:
 
         # Using pget to download the file
         pget_command = [
-            "pget", "--log-level", "warn", "-xf", url, dest
+            "pget", "--log-level", "warn", "-xf", url, file_path
         ]
         subprocess.check_call(pget_command, close_fds=False)
+
+        # Verify the file exists
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(f"File not found: {file_path}")
 
         # Untar the file if it is a tar file
         if file_path.endswith(".tar"):
