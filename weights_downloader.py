@@ -61,11 +61,11 @@ class WeightsDownloader:
         file_name = os.path.basename(url)
         file_path = os.path.join(dest, file_name)
 
-        # Using curl to download the file
-        curl_command = [
-            "curl", "-L", "-o", file_path, url
+        # Using pget to download the file
+        pget_command = [
+            "pget", "--log-level", "warn", "-xf", url, dest
         ]
-        subprocess.check_call(curl_command, close_fds=False)
+        subprocess.check_call(pget_command, close_fds=False)
 
         # Untar the file if it is a tar file
         if file_path.endswith(".tar"):
