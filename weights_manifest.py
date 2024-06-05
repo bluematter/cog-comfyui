@@ -89,6 +89,7 @@ class WeightsManifest:
 
     def _generate_weights_map(self, keys, dest):
         custom_weights = {
+            "control_openpose-fp16.safetensors": "https://huggingface.co/webui/ControlNet-modules-safetensors/resolve/main/control_openpose-fp16.safetensors",
             "zavychromaxl_v70.safetensors": "https://weights.basedlabs.ai/zavychromaxl_v70.safetensors.tar",
             "zavychromaxl_v31.safetensors": "https://weights.replicate.delivery/default/basedlabs-media/zavychromaxl_v31.safetensors.tar",
             "kitty.safetensors": "https://weights.replicate.delivery/default/basedlabs-media/kitty.safetensors.tar",

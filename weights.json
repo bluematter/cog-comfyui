@@ -226,6 +226,7 @@
     "verybadimagenegative_v1.3.pt"
   ],
   "CONTROLNET": [
+    "control_openpose-fp16.safetensors",
     "animatediff_controlnet.ckpt",
     "control-lora-canny-rank128.safetensors",
     "control-lora-canny-rank256.safetensors",
