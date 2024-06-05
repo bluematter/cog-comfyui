@@ -95,7 +95,7 @@ class WeightsManifest:
             "kitty.safetensors": "https://weights.replicate.delivery/default/basedlabs-media/kitty.safetensors.tar",
             "rife47.pth": "https://weights.replicate.delivery/default/basedlabs-media/rife47.pth.tar",
             "svd_xt_1_1.safetensors": "https://weights.replicate.delivery/default/basedlabs-media/svd_xt_1_1.safetensors.tar",
-            "ral-spike-sdxl.safetensors.tar": "https://weights.basedlabs.ai/ral-spike-sdxl.safetensors.tar"
+            "ral-spike-sdxl.safetensors": "https://weights.basedlabs.ai/ral-spike-sdxl.safetensors.tar"
         }
 
         return {
