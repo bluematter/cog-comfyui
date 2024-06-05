@@ -48,17 +48,18 @@ class WeightsDownloader:
             self.download(weight_str, url, dest)
 
     def download(self, weight_str, url, dest):
+        # Ensure the destination directory exists
         if "/" in weight_str:
             subfolder = weight_str.rsplit("/", 1)[0]
             dest = os.path.join(dest, subfolder)
-            os.makedirs(dest, exist_ok=True)
+        os.makedirs(dest, exist_ok=True)
 
         print(f"⏳ Downloading {weight_str} to {dest}")
         start = time.time()
 
-        # Ensure the destination directory exists
-        file_path = os.path.join(dest, os.path.basename(weight_str))
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        # Determine the file path
+        file_name = os.path.basename(url)
+        file_path = os.path.join(dest, file_name)
 
         # Using curl to download the file
         curl_command = [
