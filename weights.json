@@ -2,6 +2,7 @@
   "CHECKPOINTS": [
     "rife47.pth",
     "svd_xt_1_1.safetensors",
+    "zavychromaxl_v70.safetensors",
     "zavychromaxl_v31.safetensors",
     "512-inpainting-ema.safetensors",
     "absolutereality_v181.safetensors",

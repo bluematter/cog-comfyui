@@ -20,7 +20,7 @@
   },
   "13": {
     "inputs": {
-      "ckpt_name": "zavychromaxl_v50.safetensors",
+      "ckpt_name": "zavychromaxl_v70.safetensors",
       "vae_name": "sdxl_vae.safetensors",
       "clip_skip": -2,
       "lora_name": "None",
