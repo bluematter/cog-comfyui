@@ -90,7 +90,7 @@ class WeightsManifest:
     def _generate_weights_map(self, keys, dest):
         custom_weights = {
             "control_openpose-fp16.safetensors": "https://weights.basedlabs.ai/control_openpose-fp16.safetensors.tar",
-            "zavychromaxl_v70.safetensors": "https://weights.basedlabs.ai/zavychromaxl_v70.safetensors.tar",
+            "zavychromaxl_v70.safetensors": "https://civitai.com/api/download/models/490254",
             "zavychromaxl_v31.safetensors": "https://weights.replicate.delivery/default/basedlabs-media/zavychromaxl_v31.safetensors.tar",
             "kitty.safetensors": "https://weights.replicate.delivery/default/basedlabs-media/kitty.safetensors.tar",
             "rife47.pth": "https://weights.replicate.delivery/default/basedlabs-media/rife47.pth.tar",
