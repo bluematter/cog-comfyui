@@ -66,6 +66,14 @@ class WeightsDownloader:
         ]
         subprocess.check_call(curl_command, close_fds=False)
 
+        # Untar the file if it is a tar file
+        if file_path.endswith(".tar"):
+            print(f"⏳ Extracting {file_path}")
+            tar_command = [
+                "tar", "-xvf", file_path, "-C", dest
+            ]
+            subprocess.check_call(tar_command, close_fds=False)
+
         elapsed_time = time.time() - start
         try:
             file_size_bytes = os.path.getsize(file_path)
