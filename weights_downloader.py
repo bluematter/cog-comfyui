@@ -55,20 +55,16 @@ class WeightsDownloader:
 
         print(f"⏳ Downloading {weight_str} to {dest}")
         start = time.time()
-
-        # Ensure the destination directory exists
-        file_path = os.path.join(dest, os.path.basename(weight_str))
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
-
-        # Using curl to download the file
-        curl_command = [
-            "curl", "-L", "-o", file_path, url
-        ]
-        subprocess.check_call(curl_command, close_fds=False)
-
+        subprocess.check_call(
+            ["pget", "--log-level", "warn", "-m",
+             "50000M", "-c",
+             "100", "-xf", url, dest], close_fds=False
+        )
         elapsed_time = time.time() - start
         try:
-            file_size_bytes = os.path.getsize(file_path)
+            file_size_bytes = os.path.getsize(
+                os.path.join(dest, os.path.basename(weight_str))
+            )
             file_size_megabytes = file_size_bytes / (1024 * 1024)
             print(
                 f"⌛️ Downloaded {weight_str} in {elapsed_time:.2f}s, size: {file_size_megabytes:.2f}MB"
